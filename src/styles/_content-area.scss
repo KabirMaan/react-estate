@@ -1,0 +1,48 @@
+#filter {
+  background: $grey;
+  width: 30%;
+  max-width: 35rem;
+  padding: 2rem;
+
+  select {
+    background: transparent;
+    padding: 1rem;
+    color: #1b1b1b;
+    font-family: inherit;
+    display: block;
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  h4 {
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .filters {
+    .title {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      border-radius: 0.5rem;
+      padding: 0.4rem;
+      width: 45%;
+      display: inline-block;
+      margin-right: 2.5%;
+      margin-bottom: 1rem;
+    }
+
+    &.extras {
+      label {
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+        input[type="checkbox"] {
+          float: right;
+        }
+      }
+    }
+  }
+}
