@@ -3,6 +3,8 @@
   width: 30%;
   max-width: 35rem;
   padding: 2rem;
+  display: inline-block;
+  float: left;
 
   select {
     background: transparent;
@@ -48,5 +50,49 @@
 }
 
 #listings {
-  color: black;
+  color: $darkgrey;
+  width: 70%;
+  float: left;
+  padding: 2.5rem;
+  background-color: $offwhite;
+
+  .search-area {
+    input[type="text"] {
+      width: 70%;
+      background: transparent;
+      border: none;
+      border-bottom: 0.1rem solid $lightgrey;
+      margin-bottom: 1rem;
+      color: $lightgrey;
+    }
+  }
+
+  .sort-by {
+    margin-bottom: 20rem;
+
+    .results {
+      color: $lightgrey;
+      display: inline-block;
+    }
+
+    .sort-options {
+      float: right;
+
+      select {
+        border: 0.1rem solid $lightgrey;
+        background: transparent;
+
+        display: inline-block;
+        margin-right: 1.5rem;
+        vertical-align: top;
+      }
+      .view {
+        display: inline-block;
+
+        .fa {
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
 }

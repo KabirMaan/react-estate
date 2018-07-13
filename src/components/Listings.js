@@ -8,7 +8,7 @@ class Listings extends Component {
           <input type="text" name="search" />
         </section>
         <section className="sort-by">
-          <div>290 results found</div>
+          <div className="results">290 results found</div>
           <div className="sort-options">
             <select name="sort" className="sort" id="">
               <option value="price-asc">Highest Price</option>
