@@ -120,15 +120,49 @@ class Listings extends Component {
               </span>
             </div>
           </div>
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">44 Horsemen Avenue</span>
+              <div className="details">
+                <div className="user-img" />
+                <div className="user-details">
+                  <span className="user-name">William Gunn</span>
+                  <span className="post-date">02/04/2018</span>
+                </div>
+                <div className="listing-details">
+                  <div className="floor-space">
+                    <i className="icon far fa-square" />
+                    <span>
+                      1000ft<sup>2</sup>
+                    </span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="icon fas fa-bed" />
+                    <span>3 Bedrooms</span>
+                  </div>
+                </div>
+
+                <div className="view-button">View Listing</div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="price">£1000 / month</span>
+              <span className="location">
+                <i className="fas fa-map-marker-alt" />
+                Finchley London
+              </span>
+            </div>
+          </div>
         </section>
-        <section className="pagination">
-          <ul className="pagination-nums">
+        <section id="pagination">
+          <ul className="pages">
             <li>Prev</li>
-            <li>1</li>
+            <li className="active">1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>
             <li>5</li>
+            <li>Next</li>
           </ul>
         </section>
       </section>
