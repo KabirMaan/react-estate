@@ -23,7 +23,7 @@ class Listings extends Component {
         <section className="listings-results">
           <div className="listing">
             <div className="listing-img">
-              <span className="address">Address</span>
+              <span className="address">44 Horsemen Avenue</span>
               <div className="details">
                 <div className="user-img" />
                 <div className="user-details">
@@ -32,21 +32,89 @@ class Listings extends Component {
                 </div>
                 <div className="listing-details">
                   <div className="floor-space">
-                    <i className="far fa-square" />
+                    <i className="icon far fa-square" />
                     <span>
                       1000ft<sup>2</sup>
                     </span>
                   </div>
                   <div className="bedrooms">
-                    <i className="fas fa-bed" />
+                    <i className="icon fas fa-bed" />
                     <span>3 Bedrooms</span>
                   </div>
                 </div>
+
+                <div className="view-button">View Listing</div>
               </div>
             </div>
             <div className="bottom-info">
-              <span>£1000 / month</span>
-              <span>
+              <span className="price">£1000 / month</span>
+              <span className="location">
+                <i className="fas fa-map-marker-alt" />
+                Finchley London
+              </span>
+            </div>
+          </div>
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">44 Horsemen Avenue</span>
+              <div className="details">
+                <div className="user-img" />
+                <div className="user-details">
+                  <span className="user-name">William Gunn</span>
+                  <span className="post-date">02/04/2018</span>
+                </div>
+                <div className="listing-details">
+                  <div className="floor-space">
+                    <i className="icon far fa-square" />
+                    <span>
+                      1000ft<sup>2</sup>
+                    </span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="icon fas fa-bed" />
+                    <span>3 Bedrooms</span>
+                  </div>
+                </div>
+
+                <div className="view-button">View Listing</div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="price">£1000 / month</span>
+              <span className="location">
+                <i className="fas fa-map-marker-alt" />
+                Finchley London
+              </span>
+            </div>
+          </div>
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">44 Horsemen Avenue</span>
+              <div className="details">
+                <div className="user-img" />
+                <div className="user-details">
+                  <span className="user-name">William Gunn</span>
+                  <span className="post-date">02/04/2018</span>
+                </div>
+                <div className="listing-details">
+                  <div className="floor-space">
+                    <i className="icon far fa-square" />
+                    <span>
+                      1000ft<sup>2</sup>
+                    </span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="icon fas fa-bed" />
+                    <span>3 Bedrooms</span>
+                  </div>
+                </div>
+
+                <div className="view-button">View Listing</div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="price">£1000 / month</span>
+              <span className="location">
                 <i className="fas fa-map-marker-alt" />
                 Finchley London
               </span>

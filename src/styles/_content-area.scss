@@ -1,10 +1,15 @@
+#content-area {
+  width: 100%;
+  overflow: auto;
+  min-height: 100vh;
+}
+
 #filter {
   background: $grey;
   width: 30%;
   max-width: 35rem;
   padding: 2rem;
   display: inline-block;
-  float: left;
 
   select {
     background: transparent;
@@ -52,7 +57,7 @@
 #listings {
   color: $darkgrey;
   width: 70%;
-  float: left;
+  float: right;
   padding: 2.5rem;
   background-color: $offwhite;
 
@@ -63,7 +68,7 @@
       border: none;
       border-bottom: 0.1rem solid $lightgrey;
       margin-bottom: 1rem;
-      color: $lightgrey;
+      color: $darkgrey;
     }
   }
 
@@ -71,7 +76,7 @@
     margin-bottom: 20rem;
 
     .results {
-      color: $lightgrey;
+      color: $darkgrey;
       display: inline-block;
     }
 
@@ -94,5 +99,150 @@
         }
       }
     }
+  }
+}
+
+.listings-results {
+  margin-bottom: 5rem;
+
+  .listing {
+    box-shadow: 0 0.3rem 1rem 0.1rem rgba(#000, 0.3);
+    border-radius: 0.3rem;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    margin-right: 3rem;
+  }
+
+  .listing-img {
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+    background: url(https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b749ef140950edd755a159baaca6b6f0&auto=format&fit=crop&w=1350&q=80)
+      no-repeat center center;
+    background-size: cover;
+    min-height: 20rem;
+    overflow: hidden;
+
+    span {
+      color: white;
+    }
+    &:hover {
+      .details {
+        opacity: 1;
+      }
+      .address {
+        opacity: 0;
+      }
+    }
+
+    .address {
+      position: absolute;
+      bottom: 2rem;
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .details {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 3rem;
+      transition: all 0.4s ease-in-out;
+
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,29b8e5+50,bce0ee+100;Blue+Pipe */
+      background: rgb(179, 220, 237); /* Old browsers */
+      background: -moz-linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 0.8) 0%,
+        rgba(41, 184, 229, 0.8) 50%,
+        rgba(188, 224, 238, 0.8) 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        -45deg,
+        rgba(179, 220, 237, 0.8) 0%,
+        rgba(41, 184, 229, 0.8) 50%,
+        rgba(188, 224, 238, 0.8) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+        135deg,
+        rgba(179, 220, 237, 0.8) 0%,
+        rgba(41, 184, 229, 0.8) 50%,
+        rgba(188, 224, 238, 0.8) 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+      .user-img {
+        vertical-align: top;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: 0.2rem solid white;
+
+        background: url(https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b749ef140950edd755a159baaca6b6f0&auto=format&fit=crop&w=1350&q=80)
+          no-repeat center center;
+        background-size: cover;
+        display: inline-block;
+      }
+    }
+    .user-details {
+      width: 70%;
+      margin-left: 2rem;
+      display: inline-block;
+      vertical-align: top;
+
+      .user-name {
+        display: block;
+        color: rgba(255, 255, 255, 1);
+      }
+
+      .post-date {
+        display: block;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .listing-details {
+      margin-top: 1.5rem;
+      margin-bottom: 5rem;
+
+      .icon {
+        display: inline-block;
+        margin-right: 1.5rem;
+      }
+      span {
+        font-size: 1.2rem;
+        display: inline-block;
+      }
+    }
+  }
+
+  .bottom-info {
+    padding: 2rem 1.5rem;
+    .location {
+      display: block;
+      color: $darkgrey;
+    }
+    .price {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.view-button {
+  background: $darkpurple;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  max-width: 15rem;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background: $pink;
   }
 }
