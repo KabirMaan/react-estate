@@ -1,6 +1,57 @@
 import React, { Component } from "react";
 
 class Listings extends Component {
+  constructor() {
+    super();
+    this.loopListings = this.loopListings.bind(this);
+  }
+
+  loopListings() {
+    const { listingData } = this.props;
+    return listingData.map((listing, index) => {
+      return (
+        <div className="listing" key={index}>
+          <div
+            className="listing-img"
+            style={{
+              background: `url(${listing.image})
+          no-repeat center center`
+            }}
+          >
+            <span className="address">{listing.address}</span>
+            <div className="details">
+              <div className="user-img" />
+              <div className="user-details">
+                <span className="user-name">William Gunn</span>
+                <span className="post-date">02/04/2018</span>
+              </div>
+              <div className="listing-details">
+                <div className="floor-space">
+                  <i className="icon far fa-square" />
+                  <span>
+                    1000ft<sup>2</sup>
+                  </span>
+                </div>
+                <div className="bedrooms">
+                  <i className="icon fas fa-bed" />
+                  <span>{listing.bedrooms}</span>
+                </div>
+              </div>
+
+              <div className="view-button">View Listing</div>
+            </div>
+          </div>
+          <div className="bottom-info">
+            <span className="price">{listing.price}</span>
+            <span className="location">
+              <i className="fas fa-map-marker-alt" />
+              {listing.borough}, {listing.city}
+            </span>
+          </div>
+        </div>
+      );
+    });
+  }
   render() {
     return (
       <section id="listings">
@@ -20,140 +71,7 @@ class Listings extends Component {
             </div>
           </div>
         </section>
-        <section className="listings-results">
-          <div className="listing">
-            <div className="listing-img">
-              <span className="address">44 Horsemen Avenue</span>
-              <div className="details">
-                <div className="user-img" />
-                <div className="user-details">
-                  <span className="user-name">William Gunn</span>
-                  <span className="post-date">02/04/2018</span>
-                </div>
-                <div className="listing-details">
-                  <div className="floor-space">
-                    <i className="icon far fa-square" />
-                    <span>
-                      1000ft<sup>2</sup>
-                    </span>
-                  </div>
-                  <div className="bedrooms">
-                    <i className="icon fas fa-bed" />
-                    <span>3 Bedrooms</span>
-                  </div>
-                </div>
-
-                <div className="view-button">View Listing</div>
-              </div>
-            </div>
-            <div className="bottom-info">
-              <span className="price">£1000 / month</span>
-              <span className="location">
-                <i className="fas fa-map-marker-alt" />
-                Finchley London
-              </span>
-            </div>
-          </div>
-          <div className="listing">
-            <div className="listing-img">
-              <span className="address">44 Horsemen Avenue</span>
-              <div className="details">
-                <div className="user-img" />
-                <div className="user-details">
-                  <span className="user-name">William Gunn</span>
-                  <span className="post-date">02/04/2018</span>
-                </div>
-                <div className="listing-details">
-                  <div className="floor-space">
-                    <i className="icon far fa-square" />
-                    <span>
-                      1000ft<sup>2</sup>
-                    </span>
-                  </div>
-                  <div className="bedrooms">
-                    <i className="icon fas fa-bed" />
-                    <span>3 Bedrooms</span>
-                  </div>
-                </div>
-
-                <div className="view-button">View Listing</div>
-              </div>
-            </div>
-            <div className="bottom-info">
-              <span className="price">£1000 / month</span>
-              <span className="location">
-                <i className="fas fa-map-marker-alt" />
-                Finchley London
-              </span>
-            </div>
-          </div>
-          <div className="listing">
-            <div className="listing-img">
-              <span className="address">44 Horsemen Avenue</span>
-              <div className="details">
-                <div className="user-img" />
-                <div className="user-details">
-                  <span className="user-name">William Gunn</span>
-                  <span className="post-date">02/04/2018</span>
-                </div>
-                <div className="listing-details">
-                  <div className="floor-space">
-                    <i className="icon far fa-square" />
-                    <span>
-                      1000ft<sup>2</sup>
-                    </span>
-                  </div>
-                  <div className="bedrooms">
-                    <i className="icon fas fa-bed" />
-                    <span>3 Bedrooms</span>
-                  </div>
-                </div>
-
-                <div className="view-button">View Listing</div>
-              </div>
-            </div>
-            <div className="bottom-info">
-              <span className="price">£1000 / month</span>
-              <span className="location">
-                <i className="fas fa-map-marker-alt" />
-                Finchley London
-              </span>
-            </div>
-          </div>
-          <div className="listing">
-            <div className="listing-img">
-              <span className="address">44 Horsemen Avenue</span>
-              <div className="details">
-                <div className="user-img" />
-                <div className="user-details">
-                  <span className="user-name">William Gunn</span>
-                  <span className="post-date">02/04/2018</span>
-                </div>
-                <div className="listing-details">
-                  <div className="floor-space">
-                    <i className="icon far fa-square" />
-                    <span>
-                      1000ft<sup>2</sup>
-                    </span>
-                  </div>
-                  <div className="bedrooms">
-                    <i className="icon fas fa-bed" />
-                    <span>3 Bedrooms</span>
-                  </div>
-                </div>
-
-                <div className="view-button">View Listing</div>
-              </div>
-            </div>
-            <div className="bottom-info">
-              <span className="price">£1000 / month</span>
-              <span className="location">
-                <i className="fas fa-map-marker-alt" />
-                Finchley London
-              </span>
-            </div>
-          </div>
-        </section>
+        <section className="listings-results">{this.loopListings()}</section>
         <section id="pagination">
           <ul className="pages">
             <li>Prev</li>
