@@ -12,12 +12,15 @@ class App extends Component {
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
+      max_floor_space: 5000,
       elevator: false,
       basement: false,
-      swimming_pool: false
+      swimming_pool: false,
+      filteredData: listingData
     };
 
     this.change = this.change.bind(this);
+    this.filteredData = this.filteredData.bind(this);
   }
   change(event) {
     const { name } = event.target;
@@ -31,8 +34,23 @@ class App extends Component {
       },
       () => {
         console.log(this.state);
+        this.filteredData();
       }
     );
+  }
+
+  filteredData() {
+    const newData = this.state.listingData.filter(item => {
+      return (
+        item.price >= this.state.min_price &&
+        item.price <= this.state.max_price &&
+        item.floorspace >= this.state.min_floor_space &&
+        item.floorspace <= this.state.max_floor_space
+      );
+    });
+    this.setState({
+      filteredData: newData
+    });
   }
 
   render() {
@@ -41,7 +59,7 @@ class App extends Component {
         <Header />
         <section id="content-area">
           <Filter change={this.change} globalState={this.state} />
-          <Listings listingData={this.state.listingData} />
+          <Listings listingData={this.state.filteredData} />
         </section>
       </div>
     );
