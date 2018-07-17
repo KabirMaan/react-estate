@@ -9,6 +9,9 @@ class App extends Component {
     super();
     this.state = {
       listingData,
+      borough: "All",
+      houseType: "All",
+      bedrooms: 2,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,
@@ -40,14 +43,27 @@ class App extends Component {
   }
 
   filteredData() {
-    const newData = this.state.listingData.filter(item => {
+    let newData = this.state.listingData.filter(item => {
       return (
         item.price >= this.state.min_price &&
         item.price <= this.state.max_price &&
         item.floorspace >= this.state.min_floor_space &&
-        item.floorspace <= this.state.max_floor_space
+        item.floorspace <= this.state.max_floor_space &&
+        item.bedrooms >= this.state.bedrooms
       );
     });
+
+    if (this.state.borough != "All") {
+      newData = newData.filter(item => {
+        return item.borough == this.state.borough;
+      });
+    }
+
+    if (this.state.houseType != "All") {
+      newData = newData.filter(item => {
+        return item.houseType == this.state.houseType;
+      });
+    }
     this.setState({
       filteredData: newData
     });

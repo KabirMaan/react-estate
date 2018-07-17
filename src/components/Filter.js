@@ -5,26 +5,31 @@ class Filter extends Component {
     return (
       <section id="filter">
         <h4>Filter</h4>
+        <label htmlFor="borough">Borough</label>
         <select
-          name="neighbourhood"
+          name="borough"
           className="filters neighbourhood"
           onChange={this.props.change}
         >
+          <option value="All">All</option>
           <option value="Barnet">Barnet</option>
           <option value="Camden">Camden</option>
           <option value="Harrow">Harrow</option>
         </select>
+        <label htmlFor="houseType">House Type</label>
         <select
-          name="housetype"
+          name="houseType"
           className=" filters housetype"
           onChange={this.props.change}
         >
+          <option value="All">All</option>
           <option value="House">House</option>
           <option value="Flat">Flat</option>
           <option value="Studio">Studio</option>
         </select>
+        <label htmlFor="bedrooms">Bedrooms</label>
         <select
-          name="rooms"
+          name="bedrooms"
           className="filters rooms"
           onChange={this.props.change}
         >
@@ -33,6 +38,7 @@ class Filter extends Component {
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
+          <option value="6">6+</option>
         </select>
         <div className="filters price">
           <span className="title">Price</span>
