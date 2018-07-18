@@ -35,12 +35,12 @@ class Listings extends Component {
                   <div className="floor-space">
                     <i className="icon far fa-square" />
                     <span>
-                      1000ft<sup>2</sup>
+                      {listing.floorspace}ft<sup>2</sup>
                     </span>
                   </div>
                   <div className="bedrooms">
                     <i className="icon fas fa-bed" />
-                    <span>{listing.bedrooms}</span>
+                    <span>{listing.bedrooms} bedrooms</span>
                   </div>
                 </div>
 
@@ -78,12 +78,13 @@ class Listings extends Component {
                   <div className="floor-space">
                     <i className="icon far fa-square" />
                     <span>
-                      1000ft<sup>2</sup>
+                      {listing.floorspace}ft
+                      <sup>2</sup>
                     </span>
                   </div>
                   <div className="bedrooms">
                     <i className="icon fas fa-bed" />
-                    <span>{listing.bedrooms}</span>
+                    <span>{listing.bedrooms} bedrooms</span>
                   </div>
                 </div>
 
@@ -109,7 +110,9 @@ class Listings extends Component {
           <input type="text" name="search" onChange={this.props.change} />
         </section>
         <section className="sort-by">
-          <div className="results">290 results found</div>
+          <div className="results">
+            {this.props.globalState.filteredData.length} results found
+          </div>
           <div className="sort-options">
             <select name="sort" className="sort" onChange={this.props.change}>
               <option value="price-dsc">Lowest Price</option>
