@@ -94,8 +94,11 @@
       .view {
         display: inline-block;
 
-        .fa {
+        .fas {
           margin-right: 1.5rem;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -103,6 +106,7 @@
 }
 
 .listings-results {
+  margin: 0 auto;
   margin-bottom: 5rem;
   text-align: center;
 
@@ -115,6 +119,11 @@
     width: 25%;
     margin-right: 3rem;
     margin-bottom: 3rem;
+
+    &__long {
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 
   .listing-img {

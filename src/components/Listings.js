@@ -13,54 +13,100 @@ class Listings extends Component {
       return "Sorry your filter did not match any listing";
     }
     return listingData.map((listing, index) => {
-      return (
-        <div className="listing" key={index}>
-          <div
-            className="listing-img"
-            style={{
-              background: `url(${listing.image})
-          no-repeat center center`
-            }}
-          >
-            <span className="address">{listing.address}</span>
-            <div className="details">
-              <div className="user-img" />
-              <div className="user-details">
-                <span className="user-name">William Gunn</span>
-                <span className="post-date">02/04/2018</span>
-              </div>
-              <div className="listing-details">
-                <div className="floor-space">
-                  <i className="icon far fa-square" />
-                  <span>
-                    1000ft<sup>2</sup>
-                  </span>
+      if (this.props.globalState.view == "box") {
+        // This is the box view
+        return (
+          <div className="listing" key={index}>
+            <div
+              className="listing-img"
+              style={{
+                background: `url(${listing.image})
+            no-repeat center center`
+              }}
+            >
+              <span className="address">{listing.address}</span>
+              <div className="details">
+                <div className="user-img" />
+                <div className="user-details">
+                  <span className="user-name">William Gunn</span>
+                  <span className="post-date">02/04/2018</span>
                 </div>
-                <div className="bedrooms">
-                  <i className="icon fas fa-bed" />
-                  <span>{listing.bedrooms}</span>
+                <div className="listing-details">
+                  <div className="floor-space">
+                    <i className="icon far fa-square" />
+                    <span>
+                      1000ft<sup>2</sup>
+                    </span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="icon fas fa-bed" />
+                    <span>{listing.bedrooms}</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="view-button">View Listing</div>
+                <div className="view-button">View Listing</div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="price">£{listing.price}</span>
+              <span className="location">
+                <i className="fas fa-map-marker-alt" />
+                {listing.borough}, {listing.city}
+              </span>
             </div>
           </div>
-          <div className="bottom-info">
-            <span className="price">£{listing.price}</span>
-            <span className="location">
-              <i className="fas fa-map-marker-alt" />
-              {listing.borough}, {listing.city}
-            </span>
+        );
+      } else {
+        // This is the long view
+        return (
+          <div className="listing__long" key={index}>
+            <div
+              className="listing-img"
+              style={{
+                background: `url(${listing.image})
+            no-repeat center center`
+              }}
+            >
+              <span className="address">{listing.address}</span>
+              <div className="details">
+                <div className="user-img" />
+                <div className="user-details">
+                  <span className="user-name">William Gunn</span>
+                  <span className="post-date">02/04/2018</span>
+                </div>
+                <div className="listing-details">
+                  <div className="floor-space">
+                    <i className="icon far fa-square" />
+                    <span>
+                      1000ft<sup>2</sup>
+                    </span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="icon fas fa-bed" />
+                    <span>{listing.bedrooms}</span>
+                  </div>
+                </div>
+
+                <div className="view-button">View Listing</div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="price">£{listing.price}</span>
+              <span className="location">
+                <i className="fas fa-map-marker-alt" />
+                {listing.borough}, {listing.city}
+              </span>
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
   }
   render() {
     return (
       <section id="listings">
         <section className="search-area">
-          <input type="text" name="search" />
+          <input type="text" name="search" onChange={this.props.change} />
         </section>
         <section className="sort-by">
           <div className="results">290 results found</div>
@@ -70,8 +116,14 @@ class Listings extends Component {
               <option value="price-asc">Highest Price</option>
             </select>
             <div className="view">
-              <i className="fas fa-th-list" />
-              <i className="fas fa-th" />
+              <i
+                className="fas fa-th-list"
+                onClick={this.props.changeView.bind(null, "long")}
+              />
+              <i
+                className="fas fa-th"
+                onClick={this.props.changeView.bind(null, "box")}
+              />
             </div>
           </div>
         </section>
