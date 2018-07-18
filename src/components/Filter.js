@@ -1,6 +1,60 @@
 import React, { Component } from "react";
 
 class Filter extends Component {
+  constructor() {
+    super();
+
+    this.boroughs = this.boroughs.bind(this);
+    this.houseType = this.houseType.bind(this);
+    this.bedrooms = this.bedrooms.bind(this);
+  }
+  componentDidMount() {
+    this.props.populateForms();
+  }
+
+  boroughs() {
+    if (this.props.globalState.populateFormsData.boroughs != undefined) {
+      const { boroughs } = this.props.globalState.populateFormsData;
+
+      return boroughs.map(item => {
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
+      });
+    }
+  }
+
+  houseType() {
+    if (this.props.globalState.populateFormsData.houseType != undefined) {
+      const { houseType } = this.props.globalState.populateFormsData;
+
+      return houseType.map(item => {
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
+      });
+    }
+  }
+
+  bedrooms() {
+    if (this.props.globalState.populateFormsData.bedrooms != undefined) {
+      const { bedrooms } = this.props.globalState.populateFormsData;
+      bedrooms.sort();
+
+      return bedrooms.map(item => {
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
+      });
+    }
+  }
+
   render() {
     return (
       <section id="filter">
@@ -12,9 +66,7 @@ class Filter extends Component {
           onChange={this.props.change}
         >
           <option value="All">All</option>
-          <option value="Barnet">Barnet</option>
-          <option value="Camden">Camden</option>
-          <option value="Harrow">Harrow</option>
+          {this.boroughs()}
         </select>
         <label htmlFor="houseType">House Type</label>
         <select
@@ -23,9 +75,7 @@ class Filter extends Component {
           onChange={this.props.change}
         >
           <option value="All">All</option>
-          <option value="House">House</option>
-          <option value="Flat">Flat</option>
-          <option value="Studio">Studio</option>
+          {this.houseType()}
         </select>
         <label htmlFor="bedrooms">Bedrooms</label>
         <select
@@ -33,12 +83,7 @@ class Filter extends Component {
           className="filters rooms"
           onChange={this.props.change}
         >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6+</option>
+          {this.bedrooms()}
         </select>
         <div className="filters price">
           <span className="title">Price</span>
