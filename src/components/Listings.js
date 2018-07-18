@@ -46,7 +46,7 @@ class Listings extends Component {
             </div>
           </div>
           <div className="bottom-info">
-            <span className="price">{listing.price}</span>
+            <span className="price">£{listing.price}</span>
             <span className="location">
               <i className="fas fa-map-marker-alt" />
               {listing.borough}, {listing.city}
@@ -65,9 +65,9 @@ class Listings extends Component {
         <section className="sort-by">
           <div className="results">290 results found</div>
           <div className="sort-options">
-            <select name="sort" className="sort" id="">
-              <option value="price-asc">Highest Price</option>
+            <select name="sort" className="sort" onChange={this.props.change}>
               <option value="price-dsc">Lowest Price</option>
+              <option value="price-asc">Highest Price</option>
             </select>
             <div className="view">
               <i className="fas fa-th-list" />

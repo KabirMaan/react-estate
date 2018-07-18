@@ -20,12 +20,23 @@ class App extends Component {
       basement: false,
       swimming_pool: false,
       filteredData: listingData,
-      populateFormsData: ""
+      populateFormsData: "",
+      sort: "price-dsc"
     };
 
     this.change = this.change.bind(this);
     this.filteredData = this.filteredData.bind(this);
     this.populateForms = this.populateForms.bind(this);
+  }
+
+  componentWillMount() {
+    const sortedlistingData = this.state.listingData.sort((a, b) => {
+      return a.price - b.price;
+    });
+
+    this.setState({
+      listingData: sortedlistingData
+    });
   }
   change(event) {
     const { name } = event.target;
@@ -65,6 +76,19 @@ class App extends Component {
         return item.houseType == this.state.houseType;
       });
     }
+
+    if (this.state.sort == "price-dsc") {
+      newData = newData.sort((a, b) => {
+        return a.price - b.price;
+      });
+    }
+
+    if (this.state.sort == "price-asc") {
+      newData = newData.sort((a, b) => {
+        return b.price - a.price;
+      });
+    }
+
     this.setState({
       filteredData: newData
     });
@@ -78,6 +102,7 @@ class App extends Component {
 
     boroughs = new Set(boroughs);
     boroughs = [...boroughs];
+    boroughs = boroughs.sort();
 
     //houseType
     let houseType = this.state.listingData.map(item => {
@@ -86,6 +111,7 @@ class App extends Component {
 
     houseType = new Set(houseType);
     houseType = [...houseType];
+    houseType = houseType.sort();
 
     //bedrooms
     let bedrooms = this.state.listingData.map(item => {
@@ -94,6 +120,7 @@ class App extends Component {
 
     bedrooms = new Set(bedrooms);
     bedrooms = [...bedrooms];
+    bedrooms = bedrooms.sort();
 
     this.setState(
       {
@@ -119,7 +146,10 @@ class App extends Component {
             globalState={this.state}
             populateForms={this.populateForms}
           />
-          <Listings listingData={this.state.filteredData} />
+          <Listings
+            listingData={this.state.filteredData}
+            change={this.change}
+          />
         </section>
       </div>
     );

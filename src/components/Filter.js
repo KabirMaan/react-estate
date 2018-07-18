@@ -43,7 +43,6 @@ class Filter extends Component {
   bedrooms() {
     if (this.props.globalState.populateFormsData.bedrooms != undefined) {
       const { bedrooms } = this.props.globalState.populateFormsData;
-      bedrooms.sort();
 
       return bedrooms.map(item => {
         return (
