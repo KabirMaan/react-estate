@@ -9,7 +9,7 @@ const listingData = [
     extras: ["pool", "basement", "driveway"],
     houseType: "House",
     image:
-      "https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b749ef140950edd755a159baaca6b6f0&auto=format&fit=crop&w=1350&q=80"
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=350"
   },
   {
     address: "14 Wentworth Avenue",
