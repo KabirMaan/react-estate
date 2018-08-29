@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Estate agent application",
   "main": "index.js",
+  "homepage": "https://kabirmaan.github.io/react-estate",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production --env production"
+    "build:prod": "webpack --mode production --env production",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,10 @@
   "bugs": {
     "url": "https://github.com/KabirMaan/react-estate/issues"
   },
-  "homepage": "https://github.com/KabirMaan/react-estate#readme",
   "dependencies": {
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
+    "gh-pages": "^1.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "react": "^16.4.1",
